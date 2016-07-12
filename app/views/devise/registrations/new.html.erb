@@ -5,26 +5,26 @@
 
 <div class="field">
      RUN: <%= f.text_field :run, placeholder:" 12345678",:size=>"10", autofocus: true, :maxlength=>"8"%> 
-   - <%= f.text_field :run_dig_ver, placeholder:" k", :size=>"2", :maxlength=>"1"%>
+   - <%= f.text_field :run_dig_ver, placeholder:"  k", :size=>"2", :maxlength=>"1"%>
   </div>
 
 <br>
 
 <div class="field">
-    Fecha de nacimeinto: <%= f.date_field :fecha_nacimiento%> 
+    Fecha de nacimiento: <%= f.date_field :fecha_nacimiento%> 
   </div>
 <br>
 
 <div class="field">
-    Nombre: <%= f.text_field :nombre, autofocus: true %> 
+    Nombre: <%= f.text_field :nombre%> 
   </div>
 <br>
 <div class="field">
-    Apellido Paterno: <%= f.text_field :apellidop, autofocus: true %>
+    Apellido Paterno: <%= f.text_field :apellidop %>
   </div>
 <br>
 <div class="field">
-    Apellido Materno: <%= f.text_field :apellidom, autofocus: true %>
+    Apellido Materno: <%= f.text_field :apellidom%>
   </div>
 
 
@@ -34,7 +34,7 @@
 <br>
 
   <div class="field">
-     Email: <%= f.email_field :email, placeholder:"correo@gmail.com", autofocus: true %>
+     Email: <%= f.email_field :email, placeholder:"correo@gmail.com" %>
   </div>
 <br>
   <div class="field">
@@ -42,7 +42,7 @@
 
 
     <% if @minimum_password_length %>
-    <em>(minimo <%= @minimum_password_length %> caracteres)</em>
+    <em>(mínimo <%= @minimum_password_length %> caracteres)</em>
     <% end %>
 
 

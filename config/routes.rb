@@ -1,9 +1,22 @@
 Rails.application.routes.draw do
 
 
-  devise_for :rols
-  #root :to => "home#index"
+  get 'cita/ver_citas'
 
+  devise_for :rols
+  devise_scope :rol do
+  authenticated :rol do
+    root 'cita#ver_citas', as: :authenticated_root
+  end
+
+  unauthenticated do
+    root 'devise/sessions#new', as: :unauthenticated_root
+  end
+end
+
+
+  #root :to => "home#index"
+  #root 'devise/sessions#new'
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

@@ -1,0 +1,43 @@
+<div class="container">
+<h1>Mis Citas</h1>
+
+<% if rol_signed_in? %>
+  <div>Bienvenido <%= current_rol.email %></div>
+<% end %>
+<% if rol_signed_in? %>
+  
+  <%= link_to('Logout', destroy_rol_session_path, :method => :delete) %>        
+  
+<% end %>
+
+<table class="table table-striped">
+  <thead>
+    <tr>
+
+      <th>Fecha</th>
+      <th>Hora</th>
+      <th>Box</th>
+      <th>Médico</th>
+      <th>Centro </th>
+      <th>Dirección </th>
+     
+    </tr>
+  </thead>
+
+  <tbody>
+
+    <% @citas.each do |c| %>
+      <tr>
+
+        <td><%= c['fecha'] %>
+        <td><%= c['hora'] %>
+        <td><%= c['box'] %>
+        <td><%= c['nombre_med'] %> <%= c['apell_med'] %></td>
+        <td><%= c['centro'] %></td>
+        <td><%= c['calle'] %> # <%= c['num'] %></td>
+
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+</div>
