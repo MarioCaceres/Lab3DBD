@@ -3,8 +3,9 @@ class CitaController < ApplicationController
   def ver_citas
   	#@citas = Rol.citas_por_rut(current_rol.run)
   	@citas = Rol.citas_por_rut(14970293)
-
-  	#@registrar_culiao= Rol.registrar_paciente("11223344",'Cerrillos','1961-06-16',"1","calle_Falsa",'666',"fake_mail@usach.cl","banmedica","4","nombre_falso","apellidop_p","apellidom_p","5")
+  	puts "AAAAAAAAAAAAACAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+  	puts current_rol.comuna
+  	@registrar_culiao= Rol.registrar_paciente(current_rol.run,current_rol.comuna,'1961-06-16',current_rol.sexo,current_rol.direccion,current_rol.num,current_rol.email,current_rol.prevision,1,current_rol.nombre,current_rol.apellidop,current_rol.apellidom,current_rol.run_dig_ver)
     
   end
 end

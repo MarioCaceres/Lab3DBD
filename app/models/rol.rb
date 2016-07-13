@@ -16,6 +16,11 @@ class Rol < ActiveRecord::Base
       end
     end
 
+    def self.crearPaciente
+      sql = "SELECT insertar_paciente(1234,'Cerrillos','1997-1-8',21,'Caliche',3,5,'caca@cac2.cl','fonasa',1,'trasero','desimio','condistemper',3)"
+      resultado = connection.execute(sql)
+    end
+
     def self.citas_por_rut(rut_p)
 
        rut_p = Integer(rut_p) 
@@ -67,8 +72,8 @@ def self.registrar_paciente(rut_p,comuna,fecha_nac,sexo,direccion_p,num_casa,ema
        dig_ver = Integer(dig_ver)
 =end
 
-       sql = "SELECT insertar_paciente3('#{rut_p}','#{comuna}','#{fecha_nac}',#{sexo},'#{direccion_p}',
-       '#{num_casa}',0,'#{email}','#{prevision}','#{id_rol}','#{nombre_p}','#{apellidop_p}','#{apellidom_p}','#{dig_ver}')"
+       sql = "SELECT insertar_paciente2('#{rut_p}','#{comuna}','#{fecha_nac}',#{sexo},'#{direccion_p}',
+       '#{num_casa}',0,'#{email}','#{prevision}',1,'#{nombre_p}','#{apellidop_p}','#{apellidom_p}','#{dig_ver}')"
 =begin
        sqlPersona = "INSERT INTO persona (id_rol, nombre_persona, apellidop_persona, apellidom_persona, run_persona, codigo_persona)
        VALUES ('#{id_rol}','#{nombre_p}','#{apellidop_p}','#{apellidom_p}','#{rut_p}','#{dig_ver}')"
