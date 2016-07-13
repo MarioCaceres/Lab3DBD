@@ -25,7 +25,7 @@ class Rol < ActiveRecord::Base
 
        rut_p = Integer(rut_p) 
 
-       sql = "SELECT perM.nombre_Persona AS nombre_med,perM.apellidop_Persona AS apell_med, b.hora_inicio_bloque AS hora,"+
+       sql = "SELECT c.id_cita AS id_cita, perM.nombre_Persona AS nombre_med,perM.apellidop_Persona AS apell_med, b.hora_inicio_bloque AS hora,"+
           " a.fecha_agenda AS fecha,  cen.nombre_centro as centro , cen.direccion_centro AS calle, cen.numero_centro AS num, "+
           "c.box_atencion_cita AS box "+
           "FROM medico m, agenda a, bloque b, cita c, paciente p, centro_de_salud cen, persona perP, persona perM "+

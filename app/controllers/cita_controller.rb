@@ -14,4 +14,11 @@ class CitaController < ApplicationController
 
   	end
 
+  	def borrarCita
+  		puts "VAGINA"
+  		id = params[:value]
+  		puts id
+  		redirect_to '/ver_citas'
+  	end
+
 end

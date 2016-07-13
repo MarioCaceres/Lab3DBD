@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
 
 
-  get 'cita/ver_citas'
+  #get 'cita/ver_citas'
 
   devise_for :rols
   devise_scope :rol do
@@ -14,6 +14,9 @@ Rails.application.routes.draw do
   end
 end
 
+  get 'cita/borrarCita' => 'cita#borrarCita', :as => :borrarCita
+
+  get '/ver_citas' => 'cita#ver_citas'
 
   #root :to => "home#index"
   #root 'devise/sessions#new'
