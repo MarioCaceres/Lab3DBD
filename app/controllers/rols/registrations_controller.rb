@@ -3,9 +3,13 @@ class Rols::RegistrationsController < Devise::RegistrationsController
 # before_action :configure_account_update_params, only: [:update]
 
   # GET /resource/sign_up
-  #def new
-  #  super
-  # end
+  def new
+    super
+
+    puts "Hola"
+    @comunas = Database.obtener_comunas()
+    
+  end
 
   # POST /resource
   #def create

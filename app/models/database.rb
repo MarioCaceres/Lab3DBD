@@ -18,4 +18,10 @@ class Database < ActiveRecord::Base
 		return resultado
 	end
 
+	def self.obtener_comunas()
+		sql = "SELECT * FROM comuna"
+		resultado = connection.execute(sql)
+		return resultado
+	end
+	
 end
