@@ -32,7 +32,7 @@ class Database < ActiveRecord::Base
 	def self.citas_disponibles_especialidad(id_centro,id_especialidad)
 
     sql="select P.run_persona, P.nombre_persona,P.apellidop_persona,P.apellidom_persona,A.fecha_agenda,BL.hora_inicio_bloque,BL.hora_fin_bloque,
-		C.nombre_centro,ESP.nombre_especialidad from persona P inner join agenda A on P.id_persona = A.id_persona inner join
+		C.nombre_centro,ESP.nombre_especialidad,c.direccion_centro AS calle, c.numero_centro AS num from persona P inner join agenda A on P.id_persona = A.id_persona inner join
 		centro_de_salud C on C.id_centrosalud =A.id_centrosalud inner join especialidades_medico E on P.id_persona = E.id_persona inner join
 		especialidad ESP on ESP.id_especialidad = E.id_especialidad inner join bloque BL on A.id_agenda = BL.id_agenda where
 		BL.id_bloque not in (select id_bloque from cita) and A.id_centrosalud=#{id_centro} and ESP.id_especialidad =#{id_especialidad}

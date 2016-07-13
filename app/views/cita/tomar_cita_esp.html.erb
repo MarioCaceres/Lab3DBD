@@ -4,7 +4,10 @@
               <tr>
                 <th>Fecha Agenda</th>
                 <th>Hora Inicio</th>
-                <th>Medico</th>
+                <th>Médico</th>
+                <th>Centro</th>
+                <th>Dirección</th>
+               
                 <th colspan="3"></th>
               </tr>
             </thead>
@@ -14,6 +17,8 @@
                   <td><%= c['fecha_agenda'] %></td>
                   <td><%= c['hora_inicio_bloque'] %></td>
                   <td><%= c['nombre_persona']%> <%= c['apellidop_persona'] %></td>
+                  <td><%= c['nombre_centro']%></td>
+                  <td><%= c['calle'] %> # <%= c['num'] %></td>
                   <td><%= link_to 'Agendar', agendarCita_path(:hora => c['hora_inicio_bloque'],:fecha => c['fecha_agenda'],:rut_m => c['run_persona']) %></td> 
                 </tr>
               <% end %>
