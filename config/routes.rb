@@ -16,6 +16,8 @@ end
 
   get 'cita/borrarCita' => 'cita#borrarCita', :as => :borrarCita
 
+  get 'cita/agendar' => 'cita#agendar', :as => :agendarCita
+
   get '/ver_citas' => 'cita#ver_citas'
 
 

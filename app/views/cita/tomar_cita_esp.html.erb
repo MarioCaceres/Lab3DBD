@@ -14,7 +14,7 @@
                   <td><%= c['fecha_agenda'] %></td>
                   <td><%= c['hora_inicio_bloque'] %></td>
                   <td><%= c['nombre_persona']%> <%= c['apellidop_persona'] %></td>
-                  <td><%= link_to 'Borrar', borrarCita_path(:id => 1) %></td> 
+                  <td><%= link_to 'Agendar', agendarCita_path(:hora => c['hora_inicio_bloque'],:fecha => c['fecha_agenda'],:rut_m => c['run_persona']) %></td> 
                 </tr>
               <% end %>
             </tbody>

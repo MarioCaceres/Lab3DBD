@@ -4,7 +4,7 @@ class CitaController < ApplicationController
 
   	def ver_citas
 
-  		@citas = Rol.citas_por_rut(14970293)
+  		@citas = Rol.citas_por_rut(current_rol.run)
 
   		@centros = Database.obtener_centros()
   		@especialidades = Database.obtener_especialidades()
@@ -21,8 +21,9 @@ class CitaController < ApplicationController
   	end
 
     def agendar
+      @agendar = Database.agendar_hora(current_rol.run,params[:hora],params[:fecha],params[:rut_m])
       #@agendar Database.agendar_cita(params[:rut],params[:box],params[:hora_inicio],params[:fecha],params[:rutMedico])
-      #redirect_to '/ver_citas'
+      redirect_to '/ver_citas'
     end
 
     def create

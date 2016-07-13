@@ -31,7 +31,7 @@ class Database < ActiveRecord::Base
 
 	def self.citas_disponibles_especialidad(id_centro,id_especialidad)
 
-    sql="select P.nombre_persona,P.apellidop_persona,P.apellidom_persona,A.fecha_agenda,BL.hora_inicio_bloque,BL.hora_fin_bloque,
+    sql="select P.run_persona, P.nombre_persona,P.apellidop_persona,P.apellidom_persona,A.fecha_agenda,BL.hora_inicio_bloque,BL.hora_fin_bloque,
 		C.nombre_centro,ESP.nombre_especialidad from persona P inner join agenda A on P.id_persona = A.id_persona inner join
 		centro_de_salud C on C.id_centrosalud =A.id_centrosalud inner join especialidades_medico E on P.id_persona = E.id_persona inner join
 		especialidad ESP on ESP.id_especialidad = E.id_especialidad inner join bloque BL on A.id_agenda = BL.id_agenda where
@@ -43,7 +43,7 @@ class Database < ActiveRecord::Base
 
    def self.citas_disponibles_medico(id_centro,id_personaM)
 
-    sql="select P.nombre_persona,P.apellidop_persona,P.apellidom_persona,A.fecha_agenda,BL.hora_inicio_bloque,BL.hora_fin_bloque,
+    sql="select P.run_persona, P.nombre_persona,P.apellidop_persona,P.apellidom_persona,A.fecha_agenda,BL.hora_inicio_bloque,BL.hora_fin_bloque,
       C.nombre_centro,ESP.nombre_especialidad from persona P inner join agenda A on P.id_persona = A.id_persona inner join
       centro_de_salud C on C.id_centrosalud =A.id_centrosalud inner join especialidades_medico E on P.id_persona = E.id_persona inner join
       especialidad ESP on ESP.id_especialidad = E.id_especialidad inner join bloque BL on A.id_agenda = BL.id_agenda where
@@ -53,5 +53,15 @@ class Database < ActiveRecord::Base
       return resultado
 
      end
+
+
+     def self.agendar_hora(rut_p,hora_inicio,fecha,rut_m)
+
+          box= Random.new.rand(1...20) 
+
+      sql = "SELECT agendar_cita(#{rut_p},#{box},'#{hora_inicio}','#{fecha}',#{rut_m})"
+      resultado = connection.execute(sql)
+    end
+
 	
 end
