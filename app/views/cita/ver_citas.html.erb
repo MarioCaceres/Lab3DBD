@@ -53,11 +53,14 @@
               <div class="row">
                 <div class="col-md-12 form-group">
                 <label>Seleccionar Especialista</label><br>
-                    <select class="form-control">
-                  <option>Juan Guzman</option>
-                  <option>Natalia Garrido</option>
-                  <option>Nestor Gonzalez</option>
-                </select>
+                  
+                  <select class="form-control">
+
+                  <%= @medicos.each do |medico| %>
+                    <option value="<%= medico['id_persona']%>"><%= medico['nombre_persona'] + " " + medico['apellidop_persona'] + " " + medico['apellidom_persona']%></option>
+                  <% end %>
+                  
+                  </select>
             </div>
           </div>
           <button type="button" class="btn btn-lg btn-info">Buscar Horas</button>
