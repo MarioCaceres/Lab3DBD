@@ -103,7 +103,7 @@
                   <td><%= c['nombre_med'] %> <%= c['apell_med'] %></td>
                   <td><%= c['centro'] %></td>
                   <td><%= c['calle'] %> # <%= c['num'] %></td>
-                  <td><%= link_to 'Borrar', borrarCita_path, :value => c['id_cita'] %></td> 
+                  <td><%= link_to 'Borrar', borrarCita_path(:id => c['id_cita']) %></td> 
                 </tr>
               <% end %>
             </tbody>

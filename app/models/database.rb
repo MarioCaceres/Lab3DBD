@@ -23,5 +23,10 @@ class Database < ActiveRecord::Base
 		resultado = connection.execute(sql)
 		return resultado
 	end
+
+	def self.borrar_cita(id)
+		sql = "DELETE FROM cita c WHERE c.id_cita = #{id}"
+		resultado = connection.execute(sql)
+	end
 	
 end
