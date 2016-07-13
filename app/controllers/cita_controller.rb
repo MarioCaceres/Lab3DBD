@@ -25,10 +25,30 @@ class CitaController < ApplicationController
       #redirect_to '/ver_citas'
     end
 
+    def create
+    	id_centro = params[:cita][:centro]
+    	if params[:commit] == "Buscar Horas Especialidad"
+    		id_especialidad = params[:cita][:especialidad]
+    		redirect_to :controller => 'cita', :action => 'tomar_cita_esp', :idc => id_centro, :id_esp => id_especialidad
+
+    	else
+    		id_especialista = params[:cita][:especialista]
+    		redirect_to :controller => 'cita', :action => 'tomar_cita_med', :idc => id_centro, :id_med => id_especialista
+    	end
+    end
+
     def tomar_cita_esp
+    	id_centro = params[:idc]
+    	id_especialidad = params[:id_esp]
+    	@citas2 = Database.citas_disponibles_especialidad(id_centro,id_especialidad)
+    	#idcentro = params[:centro]
+    	#puts idcentro.to_s()
       #@disponibles = Database.citas_por_esp(id_centro,especialidad)
     end
     def tomar_cita_med
+    	id_centro = params[:idc]
+    	id_especialista = params[:id_med]
+    	@citas3 = Database.citas_disponibles_medico(id_centro,id_especialista)
       #@disponibles = Database.citas_por_med(id_ventro,id_medico)
     end
 

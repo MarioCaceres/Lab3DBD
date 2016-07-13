@@ -18,6 +18,12 @@ end
 
   get '/ver_citas' => 'cita#ver_citas'
 
+
+  get 'cita/tomar_cita_esp' => 'cita#tomar_cita_esp', :as => :por_especialidad
+
+  get '/tomar_cita_esp' => 'cita#tomar_cita_esp'
+
+  post '/' => 'cita#create'
   #root :to => "home#index"
   #root 'devise/sessions#new'
 

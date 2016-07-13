@@ -15,17 +15,14 @@
           </div>
           <div id="collapse1" class="panel-collapse collapse">
             <div class="panel-body">
+
+            <%= form_for :cita do |f| %>
             <div class = "container-fluid well">
               <div class="row">
                 <div class="col-md-12 form-group">
                 <label>Seleccionar Centro de Atencion</label><br>
-                    <select class="form-control" name = "centro">
-                    
-                    <%= @centros.each do |centro| %>
-                        <option name="centro" value="<%= centro['id_centrosalud'] %>"><%= centro['nombre_centro'] %></option>
-                    <% end %>
+                    <%= f.select :centro, options_for_select([["Hospital Santa Filomena", 1], ["Hospital Dipreca", 2],["Hospital Militar de Santiago",3],["Clinica Alemana",4]]), {}, {class: "form-control"} %>
 
-                    </select>
             </div>
               </div>
               </div>
@@ -35,17 +32,12 @@
                 <div class="col-md-12 form-group">
                 <label>Seleccionar Especialidad</label><br>
 
-                  <select class="form-control" name="especialidad">
-
-                  <%= @especialidades.each do |especialidad| %>
-                    <option value="<%= especialidad['id_especialidad']%>"><%= especialidad['nombre_especialidad'] %></option>
-                  <% end %>
-
-                  </select>
+                  <%= f.select :especialidad, options_for_select([["Oftalmologia", 1], ["Cardiologia", 2],["Urologia",3],["Psiquiatria",4]]), {}, {class: "form-control"} %>
 
             </div>
           </div>
-          <button type="button" class="btn btn-lg btn-info">Buscar Horas</button>
+          <%#= link_to 'Buscar Horas', por_especialidad_path(esp:  ), class:"btn btn-lg btn-default" %>
+          <%= f.submit "Buscar Horas Especialidad" %>
           </div>
 
           <div class = "container-fluid well">
@@ -54,19 +46,13 @@
                 <div class="col-md-12 form-group">
                 <label>Seleccionar Especialista</label><br>
                   
-                  <select class="form-control" name = "especialista">
-
-                  <%= @medicos.each do |medico| %>
-                    <option name="especialista" value="<%= medico['id_persona']%>"><%= medico['nombre_persona'] + " " + medico['apellidop_persona'] + " " + medico['apellidom_persona']%></option>
-                  <% end %>
-                  
-                  </select>
+                  <%= f.select :especialista, options_for_select([["Salomon Dávila Gutierrez", 3], ["Daniela Barón Flores", 9]]), {}, {class: "form-control"} %>
             </div>
           </div>
-          <button type="button" class="btn btn-lg btn-info">Buscar Horas</button>
+          <%= f.submit "Buscar Horas Medico" %>
           </div>
 
-
+          <%end%>
               </div>
             </div>
           </div>
