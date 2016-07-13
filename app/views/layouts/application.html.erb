@@ -28,9 +28,9 @@
 
 			<div class="collapse navbar-collapse" id="navbar_1">
 				<ul class="nav navbar-nav navbar-right">
-					<% if false %>
-						<li><%= link_to "Datos Personales", root_path %></li>
-						<li><%= link_to "Cerrar Sesión", root_path %></li>
+					<% if current_rol %>
+						<li><p>Bienvenido, <%= current_rol.nombre %></p></li>
+						<li><%= link_to('Cerrar Sesión', destroy_rol_session_path, :method => :delete) %></li>
 					<% else %>
 						<li><%= link_to "Ingresar", root_path %></li>
 					<% end %>
