@@ -18,10 +18,22 @@ body {
 	padding-top: 51px;
 }
 
+.navbar-inverse {
+	background: #2E64FE;
+}
+
 .navbar-inverse .navbar-brand {
 	color: white;
 }
 
 .navbar-inverse .navbar-nav li a{
 	color: white;
+}
+
+.notice {
+	color: orange;
+}
+
+.alert {
+	color: red;
 }
