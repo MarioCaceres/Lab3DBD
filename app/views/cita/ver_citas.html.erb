@@ -2,7 +2,7 @@
 
 
 
- <div class="col-xs-12 col-md-8"><h1>Mis Citas</h1></div>
+ <div class="col-xs-12 col-md-8"><h1>Panel de Control</h1></div>
   <div class="col-xs-6 col-md-4">
     <% if rol_signed_in? %>
   
@@ -18,35 +18,117 @@
 <% end %>
 
 
+<div class = "container">
+  <div class = "row">
+    <div class = "panel-group" id = "accordion">
+      <div class="panel panel-default">
+          <div class="panel-heading">
+            <h3 class="panel-title">
+              <a data-toggle="collapse" data-parent="#accordion" href="#collapse1">
+              Agendar Nueva Cita
+              </a>
+            </h3>
+          </div>
+          <div id="collapse1" class="panel-collapse collapse">
+            <div class="panel-body">
+            <div class = "container-fluid well">
+              <div class="row">
+                <div class="col-md-12 form-group">
+                <label>Seleccionar Centro de Atencion</label><br>
+                    <select class="form-control">
+                  <option>Centro 1</option>
+                  <option>Centro 2</option>
+                  <option>Centro 3</option>
+                  <option>Centro 4</option>
+                  <option>Centro 5</option>
+                </select>
+            </div>
+              </div>
+              </div>
+            <div class = "container-fluid well">
+              <h4>Por Especialidad</h4><hr>
+              <div class="row">
+                <div class="col-md-12 form-group">
+                <label>Seleccionar Especialidad</label><br>
+                    <select class="form-control">
+                  <option>Vaginologia</option>
+                  <option>Cardiologia</option>
+                  <option>Obstetricia</option>
+                  <option>Pediatria</option>
+                  <option>Urologia</option>
+                </select>
+            </div>
+          </div>
+          <button type="button" class="btn btn-lg btn-info">Buscar Horas</button>
+          </div>
 
-<table class="table table-striped">
-  <thead>
-    <tr>
+          <div class = "container-fluid well">
+          <h4>Por Especialista</h4><hr>
+              <div class="row">
+                <div class="col-md-12 form-group">
+                <label>Seleccionar Especialidad</label><br>
+                    <select class="form-control">
+                  <option>Pedro Lazo</option>
+                  <option>Camilo Salmo</option>
+                  <option>Dr Simi</option>
+                  <option>Dr Chapatin</option>
+                </select>
+            </div>
+          </div>
+          <button type="button" class="btn btn-lg btn-info">Buscar Horas</button>
+          </div>
 
-      <th>Fecha</th>
-      <th>Hora</th>
-      <th>Box</th>
-      <th>Médico</th>
-      <th>Centro </th>
-      <th>Dirección </th>
-     
-    </tr>
-  </thead>
 
-  <tbody>
+              </div>
+            </div>
+          </div>
+      </div>
 
-    <% @citas.each do |c| %>
-      <tr>
+      <div class="panel panel-default">
+          <div class="panel-heading">
+            <h3 class="panel-title">
+              <a data-toggle="collapse" data-parent="#accordion" href="#collapse2">
+              Editar Citas Actuales
+              </a>
+            </h3>
+          </div>
+          <div id="collapse2" class="panel-collapse collapse">
+            <div class="panel-body">
+              <table class="table table-hover">
+            <thead>
+              <tr>
+                <th>Fecha</th>
+                <th>Hora</th>
+                <th>Box</th>
+                <th>Medico</th>
+                <th>Centro</th>
+                <th>Direccion</th>
+                <th colspan="3"></th>
+              </tr>
+            </thead>
+            <tbody>
+              <% @citas.each do |c| %>
+                <tr>
+                  <td><%= c['fecha'] %>
+                  <td><%= c['hora'] %>
+                  <td><%= c['box'] %>
+                  <td><%= c['nombre_med'] %> <%= c['apell_med'] %></td>
+                  <td><%= c['centro'] %></td>
+                  <td><%= c['calle'] %> # <%= c['num'] %></td>
+                  <td><%= link_to 'Editar', cita, method: :editar %></td>
+                  <td><%= link_to 'Borrar', cita, method: :borrar, data: { confirm: 'Estas seguro?' } %></td>
+                </tr>
+              <% end %>
+            </tbody>
 
-        <td><%= c['fecha'] %>
-        <td><%= c['hora'] %>
-        <td><%= c['box'] %>
-        <td><%= c['nombre_med'] %> <%= c['apell_med'] %></td>
-        <td><%= c['centro'] %></td>
-        <td><%= c['calle'] %> # <%= c['num'] %></td>
+          </table>
+                
 
-      </tr>
-    <% end %>
-  </tbody>
-</table>
+            </div>
+          </div>
+      </div>
+
+    </div>
+  </div>
+  </div>
 </div>
