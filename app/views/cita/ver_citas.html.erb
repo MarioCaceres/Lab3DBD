@@ -21,7 +21,7 @@
               <div class="row">
                 <div class="col-md-12 form-group">
                 <label>Seleccionar Centro de Atencion</label><br>
-                    <%= f.select :centro, options_for_select([["Hospital Santa Filomena", 1], ["Hospital Dipreca", 2],["Hospital Militar de Santiago",3],["Clinica Alemana",4]]), {}, {class: "form-control"} %>
+                    <%= f.select :centro, options_for_select([["Hospital Santa Filomena", 1], ["Hospital Dipreca", 2],["Hospital Militar de Santiago",3],["Clinica Alemana",4],["Clinica Hospital del Profesor",6]]), {}, {class: "form-control"} %>
 
             </div>
               </div>
@@ -32,12 +32,12 @@
                 <div class="col-md-12 form-group">
                 <label>Seleccionar Especialidad</label><br>
 
-                  <%= f.select :especialidad, options_for_select([["Oftalmologia", 1], ["Cardiologia", 2],["Urologia",3],["Psiquiatria",4]]), {}, {class: "form-control"} %>
+                  <%= f.select :especialidad, options_for_select([["Oftalmologia", 1], ["Cardiologia", 2],["Urologia",3],["Psiquiatria",4],["Pediatria",5],["Dermatologia",6],["Neurologia",7]]), {}, {class: "form-control"} %>
 
             </div>
           </div>
           <%#= link_to 'Buscar Horas', por_especialidad_path(esp:  ), class:"btn btn-lg btn-default" %>
-          <%= f.submit "Buscar Horas Especialidad" %>
+          <%= f.submit "Buscar Horas Especialidad",class:"btn btn-lg btn-primary" %>
           </div>
 
           <div class = "container-fluid well">
@@ -46,10 +46,10 @@
                 <div class="col-md-12 form-group">
                 <label>Seleccionar Especialista</label><br>
                   
-                  <%= f.select :especialista, options_for_select([["Salomon Dávila Gutierrez", 3], ["Daniela Barón Flores", 9]]), {}, {class: "form-control"} %>
+                  <%= f.select :especialista, options_for_select([["Salomon Dávila Gutierrez", 3], ["Daniela Barón Flores", 9],["Sebastian Sepulveda Fritz",95],["Dencil Gajardo Torres",96],["Julian Simi Bailarin",97],["Camila Salvo Weber",98],["Sofia Gomez Perez",99],["Claudio Henriquez Beterraga",100]]), {}, {class: "form-control"} %>
             </div>
           </div>
-          <%= f.submit "Buscar Horas Medico" %>
+          <%= f.submit "Buscar Horas Medico",class:"btn btn-lg btn-primary" %>
           </div>
 
           <%end%>
