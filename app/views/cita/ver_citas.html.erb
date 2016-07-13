@@ -1,14 +1,23 @@
 <div class="container">
-<h1>Mis Citas</h1>
+
+
+
+ <div class="col-xs-12 col-md-8"><h1>Mis Citas</h1></div>
+  <div class="col-xs-6 col-md-4">
+    <% if rol_signed_in? %>
+  
+     <%= link_to('Cerrar Sesión', destroy_rol_session_path, :method => :delete, class:"btn btn-lg btn-default") %>
+  
+    <% end %>
+	
+ </div>
+
 
 <% if rol_signed_in? %>
   <div>Bienvenido <%= current_rol.email %></div>
 <% end %>
-<% if rol_signed_in? %>
-  
-  <%= link_to('Logout', destroy_rol_session_path, :method => :delete) %>        
-  
-<% end %>
+
+
 
 <table class="table table-striped">
   <thead>

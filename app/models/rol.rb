@@ -34,4 +34,53 @@ class Rol < ActiveRecord::Base
       return resultado
     end
 
+=begin
+def self.registrar_paciente(rut_p,comuna,fecha_nac,sexo,direccion_p,num_casa,email,prevision,id_rol,nombre_p,apellidop_p,apellidom_p,dig_ver)
+
+       rut_p = Integer(rut_p) 
+
+       my_name    = ActiveRecord::Base.connection.quote(direccion_p)
+       direccion_p = direccion_p.to_s()
+       
+       sexo = Integer(sexo)
+       num_casa = Integer(num_casa)
+       id_rol = Integer(id_rol)
+       dig_ver = Integer(dig_ver)
+       #comuna = Integer(comuna)
+
+       sql = "SELECT insertar_paciente3(#{rut_p},#{comuna},'#{fecha_nac}',#{sexo},#{my_name},"+
+       "#{num_casa},0,'#{email}','#{prevision}',#{id_rol},'#{nombre_p}','#{apellidop_p}','#{apellidom_p}',#{dig_ver})"
+  
+      resultado = ActiveRecord::Base.connection.exec_query(sql)
+      return resultado
+    end
+=end
+
+def self.registrar_paciente(rut_p,comuna,fecha_nac,sexo,direccion_p,num_casa,email,prevision,id_rol,nombre_p,apellidop_p,apellidom_p,dig_ver)
+=begin
+       rut_p = Integer(rut_p) 
+       direccion_p = direccion_p
+       
+       sexo = Integer(sexo)
+       num_casa = Integer(num_casa)
+       id_rol = Integer(id_rol)
+       dig_ver = Integer(dig_ver)
+=end
+
+       sql = "SELECT insertar_paciente3('#{rut_p}','#{comuna}','#{fecha_nac}',#{sexo},'#{direccion_p}',
+       '#{num_casa}',0,'#{email}','#{prevision}','#{id_rol}','#{nombre_p}','#{apellidop_p}','#{apellidom_p}','#{dig_ver}')"
+=begin
+       sqlPersona = "INSERT INTO persona (id_rol, nombre_persona, apellidop_persona, apellidom_persona, run_persona, codigo_persona)
+       VALUES ('#{id_rol}','#{nombre_p}','#{apellidop_p}','#{apellidom_p}','#{rut_p}','#{dig_ver}')"
+
+       sqlPaciente = "INSERT INTO paciente (id_persona, id_comuna,fecha_nacimiento_paciente,
+       sexo_paciente,direccion_paciente,numero_paciente,email_paciente, prevision_paciente)
+       VALUES ((SELECT id_persona FROM persona WHERE run_persona = '#{rut_p}'), 
+       (SELECT id_comuna FROM comuna WHERE id_comuna = '#{comuna}'),'#{fecha_nac}', '#{sexo}',
+       '#{direccion_p}',)"
+=end
+      resultado = ActiveRecord::Base.connection.exec_query(sql)
+      
+    end
+
 end
