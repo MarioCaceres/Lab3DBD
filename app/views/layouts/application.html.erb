@@ -29,7 +29,7 @@
 			<div class="collapse navbar-collapse" id="navbar_1">
 				<ul class="nav navbar-nav navbar-right">
 					<% if current_rol %>
-						<li><p>Bienvenido, <%= current_rol.nombre %></p></li>
+						<li><a href="">Bienvenido, <%= current_rol.nombre %></a></li>
 						<li><%= link_to('Cerrar Sesión', destroy_rol_session_path, :method => :delete) %></li>
 					<% else %>
 						<li><%= link_to "Ingresar", root_path %></li>
