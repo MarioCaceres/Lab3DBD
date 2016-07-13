@@ -20,4 +20,16 @@ class CitaController < ApplicationController
   		redirect_to '/ver_citas'
   	end
 
+    def agendar
+      #@agendar Database.agendar_cita(params[:rut],params[:box],params[:hora_inicio],params[:fecha],params[:rutMedico])
+      #redirect_to '/ver_citas'
+    end
+
+    def tomar_cita_esp
+      #@disponibles = Database.citas_por_esp(id_centro,especialidad)
+    end
+    def tomar_cita_med
+      #@disponibles = Database.citas_por_med(id_ventro,id_medico)
+    end
+
 end
