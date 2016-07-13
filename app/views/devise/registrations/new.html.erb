@@ -19,17 +19,17 @@
 
             <div class="col-md-4 form-group">
               <label>Nombre</label>
-              <%= f.text_field :nombre, class:"form-control", placeholder:"Ej: Juan"%> 
+              <%= f.text_field :nombre, class:"form-control", placeholder:"Ej: Juan",:maxlength=>"20"%> 
             </div>
 
             <div class="col-md-4 form-group">
               <label>Apellido Paterno</label>
-              <%= f.text_field :apellidop, class:"form-control", placeholder:"Ej: Castro"%>
+              <%= f.text_field :apellidop, class:"form-control", placeholder:"Ej: Castro",:maxlength=>"15"%>
             </div>
 
             <div class="col-md-4 form-group">
               <label>Apellido Materno</label>
-              <%= f.text_field :apellidom, class:"form-control", placeholder:"Ej: Rice"%>
+              <%= f.text_field :apellidom, class:"form-control", placeholder:"Ej: Rice",:maxlength=>"15"%>
             </div>
 
           </div>
@@ -68,19 +68,19 @@
             <div class="col-md-4 form-group">
               <label>Calle</label>
 
-              <%= f.text_field :direccion, placeholder: "Ej: Los Leones", class: "form-control" %>
+              <%= f.text_field :direccion, placeholder: "Ej: Los Leones", class: "form-control", :maxlength=>"25" %>
 
             </div>
             <div class="col-md-2 form-group">
               <label>Número</label>
 
-              <%= f.text_field :num, placeholder: "Ej 1827", class: "form-control" %>
+              <%= f.text_field :num, placeholder: "Ej 1827", class: "form-control", :maxlength=>"6" %>
 
             </div>
             <div class="col-md-2 form-group">
               <label>Departamento</label>
 
-              <%= f.text_field :depto, placeholder: "Ej: 622", class: "form-control" %>
+              <%= f.text_field :depto, placeholder: "Ej: 622", class: "form-control", :maxlength=>"6" %>
 
             </div>
             <div class="col-md-4 form-group">
@@ -97,13 +97,13 @@
             <div class="col-md-6 form-group">
               <label>Email</label>
 
-              <%= f.text_field :email, placeholder: "Ej: juan.perez@gmail.com", class: "form-control" %>
+              <%= f.text_field :email, placeholder: "Ej: juan.perez@gmail.com", class: "form-control", :maxlength=>"20" %>
 
             </div>
             <div class="col-md-4 form-group">
               <label>Teléfono</label>
               
-              <%= f.text_field :telefono, placeholder: "Ej: 22833938", class: "form-control" %>
+              <%= f.text_field :telefono, placeholder: "Ej: 22833938", class: "form-control", :maxlength=>"8" %>
 
             </div>
           </div>
@@ -112,15 +112,15 @@
           <hr>
           <div class="row">
             <div class="col-md-12 form-group">
-              <label>Contraseña</label>
+              <label>Contraseña (Minimo 6 caracteres)</label>
               
-              <%= f.password_field :password, autocomplete: "off", class: "form-control" %>
+              <%= f.password_field :password, autocomplete: "off", class: "form-control", :maxlength=>"20" %>
 
             </div>
             <div class="col-md-12 form-group">
               <label>Repita Contraseña</label>
               
-              <%= f.password_field :password_confirmation, autocomplete: "off", class: "form-control" %>
+              <%= f.password_field :password_confirmation, autocomplete: "off", class: "form-control",:maxlength=>"20" %>
 
             </div>
           </div>

@@ -10,7 +10,7 @@ GIT
       warden (~> 1.2.3)
 
 GEM
-  remote: https://rubygems.org/
+  remote: https://rubygems.org
   specs:
     actionmailer (4.2.6)
       actionpack (= 4.2.6)

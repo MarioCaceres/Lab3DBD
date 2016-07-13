@@ -182,6 +182,25 @@ ActiveRecord::Schema.define(version: 20160712231617) do
 
   add_index "tipo_de_centro", ["id_tipocentro"], name: "tipo_de_centro_pk", unique: true, using: :btree
 
+  create_table "usuarios", force: :cascade do |t|
+    t.string   "nombre"
+    t.string   "paterno"
+    t.string   "materno"
+    t.string   "rut"
+    t.string   "digito"
+    t.string   "calle"
+    t.string   "numero"
+    t.string   "departamento"
+    t.string   "comuna"
+    t.string   "email"
+    t.string   "telefono"
+    t.string   "contraseña"
+    t.string   "prevision"
+    t.integer  "sexo"
+    t.datetime "created_at",   null: false
+    t.datetime "updated_at",   null: false
+  end
+
   add_foreign_key "agenda", "centro_de_salud", column: "id_centrosalud", primary_key: "id_centrosalud", name: "fk_agenda_centro_ti_centro_d", on_update: :restrict, on_delete: :restrict
   add_foreign_key "agenda", "medico", column: "id_persona", primary_key: "id_persona", name: "fk_agenda_medico_ti_medico", on_update: :restrict, on_delete: :restrict
   add_foreign_key "bloque", "agenda", column: "id_agenda", primary_key: "id_agenda", name: "fk_bloque_agenda_ti_agenda", on_update: :restrict, on_delete: :restrict
