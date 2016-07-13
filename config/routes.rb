@@ -22,6 +22,7 @@ end
   get 'cita/tomar_cita_esp' => 'cita#tomar_cita_esp', :as => :por_especialidad
 
   get '/tomar_cita_esp' => 'cita#tomar_cita_esp'
+  get '/tomar_cita_med' => 'cita#tomar_cita_med'
 
   post '/' => 'cita#create'
   #root :to => "home#index"
